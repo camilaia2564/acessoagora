@@ -3,20 +3,110 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>100k Vazados - R$ 9,90</title>
+  <title>ACESSO VIP LIBERADO</title>
   <style>
-    body { margin:0; background:#000; text-align:center; font-family:Arial, sans-serif; }
-    img { width:100%; height:auto; display:block; }
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(180deg, #000000, #1a0033);
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      width: 90%;
+      max-width: 420px;
+      border: 3px solid #e91e63;
+      border-radius: 20px;
+      padding: 30px 20px;
+      background: rgba(0, 0, 0, 0.85);
+    }
+    h2 {
+      font-size: 18px;
+      margin: 0 0 15px 0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    #timer {
+      font-size: 72px;
+      font-weight: bold;
+      color: #ff0066;
+      margin: 10px 0 20px 0;
+      text-shadow: 0 0 20px #ff0066;
+    }
+    .liberado {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 15px 0;
+      color: #00ff88;
+      display: none;
+    }
     .btn {
-      display:block; margin:30px auto; padding:18px 0;
-      background:#e91e63; color:white; font-size:24px; font-weight:bold;
-      border-radius:50px; text-decoration:none; width:85%;
-      box-shadow:0 0 25px #e91e63;
+      display: none;
+      margin: 25px auto 0;
+      padding: 18px 40px;
+      background: #e91e63;
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 0 30px #e91e63;
+    }
+    .btn:hover {
+      background: #ff4081;
+    }
+    .footer {
+      margin-top: 30px;
+      font-size: 14px;
+      opacity: 0.8;
     }
   </style>
 </head>
 <body>
-  <img src="https://i.imgur.com/3vL8kPq.jpg" alt="100k Vazados">
-  <a href="https://t.me/Droq" class="btn">ACESSO AQUI 🔥</a>
+  <div class="container">
+    <h2>VOCE TEM 5 SEGUNDOS PARA ENTRAR NO GRUPINHO VIP</h2>
+    
+    <div id="timer">00:05</div>
+
+    <div class="liberado" id="liberado">
+      🔥 ACESSO VIP LIBERADO 🔥
+    </div>
+
+    <a href="https://linkpriv.com/1ec38631-15bb-4b46-9981-cce5654b6e9d" 
+       id="btnAcesso" 
+       class="btn">
+      ENTRAR AGORA NO VIP
+    </a>
+
+    <div class="footer">
+      Entre com sigilo total e aproveite tudo.
+    </div>
+  </div>
+
+  <script>
+    let tempo = 5;
+    const timerEl = document.getElementById('timer');
+    const liberadoEl = document.getElementById('liberado');
+    const btnEl = document.getElementById('btnAcesso');
+
+    const intervalo = setInterval(() => {
+      tempo--;
+      timerEl.textContent = `00:0${tempo}`;
+
+      if (tempo <= 0) {
+        clearInterval(intervalo);
+        timerEl.style.display = 'none';
+        liberadoEl.style.display = 'block';
+        btnEl.style.display = 'block';
+      }
+    }, 1000);
+  </script>
 </body>
 </html>

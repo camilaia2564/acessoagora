@@ -5,67 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ACESSO VIP LIBERADO</title>
   <style>
+    /* Explicação da estrutura e animações:
+    - Estrutura: A página usa um container centralizado com borda neon rosa para simular o quadro arredondado. O fundo é um gradiente escuro (preto para roxo) para vibe noturna.
+    - Animações: O cronômetro usa JavaScript com setInterval para contagem regressiva de 5s, atualizando o texto do timer a cada segundo. Quando chega a 0, esconde o timer e mostra os elementos liberados (título com emotes de fogo, texto de sigilo e passo final). Não há animações CSS avançadas, só display none/block para transição simples. O timer tem text-shadow para glow neon. O passo final é texto estático com uppercase para ênfase. Tudo igual ao screenshot, com emotes 🔥 e cores neon. */
     body {
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       background: linear-gradient(180deg, #000000, #1a0033);
       font-family: Arial, sans-serif;
       color: white;
       text-align: center;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
     }
     .container {
-      width: 90%;
       max-width: 420px;
+      margin: 20px auto;
+      padding: 25px 15px;
       border: 3px solid #e91e63;
       border-radius: 20px;
-      padding: 30px 20px;
-      background: rgba(0, 0, 0, 0.85);
+      background: rgba(0,0,0,0.9);
     }
-    h2 {
-      font-size: 18px;
-      margin: 0 0 15px 0;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
+    h2 { font-size: 17px; margin: 10px 0 15px; text-transform: uppercase; }
     #timer {
-      font-size: 72px;
+      font-size: 78px;
       font-weight: bold;
       color: #ff0066;
-      margin: 10px 0 20px 0;
-      text-shadow: 0 0 20px #ff0066;
+      margin: 10px 0 20px;
+      text-shadow: 0 0 25px #ff0066;
     }
     .liberado {
-      font-size: 24px;
+      font-size: 26px;
       font-weight: bold;
+      color: #ffcc00;
+      display: none;
       margin: 15px 0;
-      color: #00ff88;
-      display: none;
     }
-    .btn {
-      display: none;
-      margin: 25px auto 0;
-      padding: 18px 40px;
-      background: #e91e63;
-      color: white;
-      font-size: 22px;
-      font-weight: bold;
-      border: none;
-      border-radius: 50px;
-      text-decoration: none;
-      box-shadow: 0 0 30px #e91e63;
+    .sigilo {
+      font-size: 16px;
+      margin: 10px 0 25px;
+      opacity: 0.9;
     }
-    .btn:hover {
-      background: #ff4081;
-    }
-    .footer {
-      margin-top: 30px;
+    .passo-final {
       font-size: 14px;
-      opacity: 0.8;
+      color: #ff0066;
+      margin-top: 30px;
+      text-transform: uppercase;
+      font-weight: bold;
+      display: none;
     }
   </style>
 </head>
@@ -79,22 +68,25 @@
       🔥 ACESSO VIP LIBERADO 🔥
     </div>
 
-    <a href="https://linkpriv.com/1ec38631-15bb-4b46-9981-cce5654b6e9d" 
-       id="btnAcesso" 
-       class="btn">
-      ENTRAR AGORA NO VIP
-    </a>
-
-    <div class="footer">
+    <p class="sigilo" id="sigilo" style="display:none;">
       Entre com sigilo total e aproveite tudo.
-    </div>
+    </p>
+
+    <p class="passo-final" id="passo">
+      PASSO FINAL: Toque nos 3 PONTOS acima e escolha ABRIR NO NAVEGADOR.
+    </p>
   </div>
 
   <script>
     let tempo = 5;
     const timerEl = document.getElementById('timer');
     const liberadoEl = document.getElementById('liberado');
-    const btnEl = document.getElementById('btnAcesso');
+    const sigiloEl = document.getElementById('sigilo');
+    const passoEl = document.getElementById('passo');
+
+    liberadoEl.style.display = 'none';
+    sigiloEl.style.display = 'none';
+    passoEl.style.display = 'none';
 
     const intervalo = setInterval(() => {
       tempo--;
@@ -104,7 +96,12 @@
         clearInterval(intervalo);
         timerEl.style.display = 'none';
         liberadoEl.style.display = 'block';
-        btnEl.style.display = 'block';
+        sigiloEl.style.display = 'block';
+        passoEl.style.display = 'block';
+        // Redireciona automaticamente após 2 segundos para o link
+        setTimeout(() => {
+          window.location.href = "https://linkpriv.com/1ec38631-15bb-4b46-9981-cce5654b6e9d";
+        }, 2000);
       }
     }, 1000);
   </script>

@@ -57,29 +57,15 @@
       font-size: 14px;
       color: #ff0066;
       margin-top: 30px;
+      margin-bottom: 20px;
       text-transform: uppercase;
       font-weight: bold;
       display: none;
     }
-    /* Estilo para as imagens do tutorial */
-    .tutorial-img {
-      width: 90%;
-      max-width: 350px;
-      border-radius: 10px;
-      margin: 10px auto;
-      display: none; /* Começa escondido */
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-    /* Seta de indicação */
-    .seta {
-      font-size: 30px;
-      color: #ff0066;
-      display: none;
-      margin: 5px 0;
-    }
     .btn {
       display: none;
       width: 88%;
+      max-width: 350px;
       margin: 20px auto;
       padding: 18px;
       background: #e91e63;
@@ -90,6 +76,7 @@
       border-radius: 50px;
       text-decoration: none;
       box-shadow: 0 0 30px #e91e63;
+      box-sizing: border-box;
     }
   </style>
 </head>
@@ -99,7 +86,7 @@
     
     <div id="timer">00:05</div>
 
-    <img src="https://i.ibb.co/Psr00KC3/imagem.jpg" class="midia-container" alt="Mídia Premium">
+    <img src="https://i.ibb.co/Psr00KC3/imagem.jpg" class="midia-container" alt="Tutorial de Acesso">
 
     <div class="liberado" id="liberado">
       🔥 ACESSO PRIVADO LIBERADO 🔥
@@ -113,10 +100,6 @@
       PASSO FINAL: Toque nos 3 PONTOS e escolha ABRIR NO NAVEGADOR.
     </p>
     
-    <img src="https://i.ibb.co/68XkYmC/navegador-web.jpg" class="tutorial-img" id="img1" alt="Passo 1">
-    <div class="seta" id="seta">⬇️</div>
-    <img src="https://i.ibb.co/hWpG1p4/abrir-no-navegador.jpg" class="tutorial-img" id="img2" alt="Passo 2">
-
     <a href="LINK_DESTINO_FINAL_DO_USUARIO_SE_HOUVER" 
        id="btnAcesso" 
        class="btn">
@@ -130,9 +113,6 @@
     const liberadoEl = document.getElementById('liberado');
     const sigiloEl = document.getElementById('sigilo');
     const passoEl = document.getElementById('passo');
-    const img1El = document.getElementById('img1');
-    const setaEl = document.getElementById('seta');
-    const img2El = document.getElementById('img2');
     const btnEl = document.getElementById('btnAcesso');
 
     const intervalo = setInterval(() => {
@@ -145,10 +125,6 @@
         liberadoEl.style.display = 'block';
         sigiloEl.style.display = 'block';
         passoEl.style.display = 'block';
-        // Mostra o tutorial visual e o botão
-        img1El.style.display = 'block';
-        setaEl.style.display = 'block';
-        img2El.style.display = 'block';
         btnEl.style.display = 'block';
       }
     }, 1000);

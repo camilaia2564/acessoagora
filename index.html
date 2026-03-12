@@ -3,11 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ACESSO VIP LIBERADO</title>
+  <title>ACESSO PREMIUM LIBERADO</title>
   <style>
-    /* Explicação da estrutura e animações: 
-    - Quadro: Um container centralizado com borda 3px solid #e91e63 (rosa neon) e border-radius 20px para arredondado, fundo rgba(0,0,0,0.9) escuro semi-transparente. Fundo do body é linear-gradient(180deg, #000000, #1a0033) para vibe roxa noturna.
-    - Animações: Contagem regressiva com JavaScript setInterval atualizando o texto do timer a cada segundo, de 5 a 0. Quando zera, esconde timer com display:none e mostra liberado/sigilo/passo com display:block. Timer tem text-shadow 0 0 25px #ff0066 para glow neon vermelho. Emotes 🔥 são texto direto no HTML. Sem animações CSS avançadas, só transições simples via JS. Tudo igual ao screenshot, com frases exatas, emotes e cores neon para conversão alta. */
     body {
       margin: 0; padding: 0;
       background: linear-gradient(180deg, #000000, #1a0033);
@@ -36,7 +33,7 @@
       margin: 10px 0 20px;
       text-shadow: 0 0 25px #ff0066;
     }
-    .midia {
+    .midia-container {
       width: 100%;
       border-radius: 12px;
       margin: 15px 0 25px;
@@ -59,7 +56,7 @@
     .passo-final {
       font-size: 14px;
       color: #ff0066;
-      margin-top: 30px;
+      margin: 30px 0 20px;
       text-transform: uppercase;
       font-weight: bold;
       display: none;
@@ -67,6 +64,7 @@
     .btn {
       display: none;
       width: 88%;
+      max-width: 350px;
       margin: 20px auto;
       padding: 18px;
       background: #e91e63;
@@ -77,49 +75,45 @@
       border-radius: 50px;
       text-decoration: none;
       box-shadow: 0 0 30px #e91e63;
+      box-sizing: border-box;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h2>VOCE TEM 5 SEGUNDOS PARA ENTRAR NO GRUPINHO VIP</h2>
+    <h2>VOCÊ TEM 5 SEGUNDOS PARA ENTRAR NA NUVEM PREMIUM</h2>
     
     <div id="timer">00:05</div>
 
-    <!-- === MÍDIA: IMAGEM (link fornecido) === -->
-    <img src="https://ibb.co/B2h3064T" alt="Mídia Teaser" class="midia">
+    <img src="https://i.postimg.cc/mD8Nf9y2/tutorial.jpg" class="midia-container" alt="Instruções de Acesso">
 
     <div class="liberado" id="liberado">
-      🔥 ACESSO VIP LIBERADO 🔥
+      🔥 ACESSO PRIVADO LIBERADO 🔥
     </div>
 
     <p class="sigilo" id="sigilo">
-      Entre com sigilo total e aproveite tudo.
+      Aproveite todo o conteúdo com sigilo total.
     </p>
 
     <p class="passo-final" id="passo">
-      PASSO FINAL: Toque nos 3 PONTOS acima e escolha ABRIR NO NAVEGADOR.
+      PASSO FINAL: Toque nos 3 PONTOS e escolha ABRIR NO NAVEGADOR.
     </p>
-
-    <a href="https://linkpriv.com/1ec38631-15bb-4b46-9981-cce5654b6e9d" 
-       id="btnAcesso" 
-       class="btn">
-      ENTRAR NO VIP AGORA 🔥
+    
+    <a href="https://linkpriv.com/1ec38631-15bb-4b46-9981-cce5654b6e9d" id="btnAcesso" class="btn">
+      QUERO ACESSAR AGORA 🔥
     </a>
   </div>
 
   <script>
     let tempo = 5;
     const timerEl = document.getElementById('timer');
-    const liberadoEl = document.getElementById('liberado');
-    const sigiloEl = document.getElementById('sigilo');
-    const passoEl = document.getElementById('passo');
-    const btnEl = document.getElementById('btnAcesso');
-
-    liberadoEl.style.display = 'none';
-    sigiloEl.style.display = 'none';
-    passoEl.style.display = 'none';
-    btnEl.style.display = 'none';
+    const ids = ['liberado', 'sigilo', 'passo', 'btnAcesso'];
 
     const intervalo = setInterval(() => {
       tempo--;
@@ -128,10 +122,7 @@
       if (tempo <= 0) {
         clearInterval(intervalo);
         timerEl.style.display = 'none';
-        liberadoEl.style.display = 'block';
-        sigiloEl.style.display = 'block';
-        passoEl.style.display = 'block';
-        btnEl.style.display = 'block';
+        ids.forEach(id => document.getElementById(id).style.display = 'block');
       }
     }, 1000);
   </script>

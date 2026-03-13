@@ -72,4 +72,72 @@
       padding: 18px;
       background: #e91e63;
       color: white;
-      font
+      font-size: 23px;
+      font-weight: bold;
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 0 30px #e91e63;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>VOCE TEM 5 SEGUNDOS PARA ENTRAR NO GRUPINHO VIP</h2>
+    
+    <div id="timer">00:05</div>
+
+    <!-- === VÍDEO ATUALIZADO (novo link) === -->
+    <video autoplay loop muted playsinline>
+      <source src="https://files.catbox.moe/6b42bh.mp4" type="video/mp4">
+      Seu navegador não suporta o vídeo.
+    </video>
+
+    <div class="liberado" id="liberado">
+      🔥 ACESSO VIP LIBERADO 🔥
+    </div>
+
+    <p class="sigilo" id="sigilo">
+      Entre com sigilo total e aproveite tudo.
+    </p>
+
+    <p class="passo-final" id="passo">
+      PASSO FINAL: Toque nos 3 PONTOS acima e escolha ABRIR NO NAVEGADOR.
+    </p>
+
+    <a href="https://linkpriv.com/1ec38631-15bb-4b46-9981-cce5654b6e9d" 
+       id="btnAcesso" 
+       class="btn">
+      ENTRAR NO VIP AGORA 🔥
+    </a>
+  </div>
+
+  <script>
+    let tempo = 5;
+    const timerEl = document.getElementById('timer');
+    const liberadoEl = document.getElementById('liberado');
+    const sigiloEl = document.getElementById('sigilo');
+    const passoEl = document.getElementById('passo');
+    const btnEl = document.getElementById('btnAcesso');
+
+    liberadoEl.style.display = 'none';
+    sigiloEl.style.display = 'none';
+    passoEl.style.display = 'none';
+    btnEl.style.display = 'none';
+
+    const intervalo = setInterval(() => {
+      tempo--;
+      timerEl.textContent = `00:0${tempo}`;
+
+      if (tempo <= 0) {
+        clearInterval(intervalo);
+        timerEl.style.display = 'none';
+        liberadoEl.style.display = 'block';
+        sigiloEl.style.display = 'block';
+        passoEl.style.display = 'block';
+        btnEl.style.display = 'block';
+      }
+    }, 1000);
+  </script>
+</body>
+</html>

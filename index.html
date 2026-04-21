@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -53,14 +54,14 @@
       height: 100%;
       object-fit: cover;
     }
-    .liberado {
+    .desbloquear {
       font-size: 26px;
       font-weight: bold;
       color: #ffcc00;
       display: none;
       margin: 15px 0;
     }
-    .sigilo {
+    .trabalho {
       font-size: 16px;
       margin: 10px 0 25px;
       opacity: 0.9;
@@ -107,16 +108,16 @@
       </video>
     </div>
 
-    <div class="liberado" id="liberado">
+    <div class="desbloquear" id="desbloquear">
  ATENÇÃO: Toque nos 3 PONTOS acima e escolha ABRIR NO NAVEGADOR. 👆
     </div>
 
-    <p class="sigilo" id="sigilo">
+    <p class="trabalho" id="trabalho">
 🔐 ÚLTIMO PASSO: 
-      Clique no botão ABAIXO, venha conhecer meu trabalho: 🚨 
+      Clique no botão ABAIXO, venha conhecer o meu trabalho: 🚨 
     </p>
 
-    <p class="passo-final" id="passo">
+    <p class="soldado" id="soldado">
 siga as instruções SOLDADO: 👇🏻
 
     </p>
@@ -131,9 +132,9 @@ siga as instruções SOLDADO: 👇🏻
   <script>
     let tempo = 5;
     const timerEl = document.getElementById('timer');
-    const liberadoEl = document.getElementById('liberado');
-    const sigiloEl = document.getElementById('sigilo');
-    const passoEl = document.getElementById('passo');
+    const liberadoEl = document.getElementById('desbloquear');
+    const sigiloEl = document.getElementById('trabalho');
+    const passoEl = document.getElementById('soldado');
     const btnEl = document.getElementById('btnAcesso');
 
     const intervalo = setInterval(() => {
